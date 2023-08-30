@@ -6,10 +6,10 @@ from langchain.retrievers.web_research import WebResearchRetriever
 
 import os
 
-os.environ["GOOGLE_API_KEY"] = "AIzaSyB1IvTOwkjHb-5mkPP31f3-WSoALrpzJaQ"
+os.environ["GOOGLE_API_KEY"] = "******"
 os.environ["GOOGLE_CSE_ID"] = "0790ca008d92a467d" # Get it at https://programmablesearchengine.google.com/
 os.environ["OPENAI_API_BASE"] = "https://api.openai.com/v1"
-os.environ["OPENAI_API_KEY"] = "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" # Get it at https://beta.openai.com/account/api-keys
+os.environ["OPENAI_API_KEY"] = "*********" # Get it at https://beta.openai.com/account/api-keys
 
 st.set_page_config(page_title="Donor Research", page_icon="🌐")
 
