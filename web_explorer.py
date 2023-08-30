@@ -1,16 +1,17 @@
 import streamlit as st
+from langchain.utilities import GoogleSearchAPIWrapper
 from langchain.callbacks.base import BaseCallbackHandler
 from langchain.chains import RetrievalQAWithSourcesChain
 from langchain.retrievers.web_research import WebResearchRetriever
 
 import os
 
-os.environ["GOOGLE_API_KEY"] = "YOUR_API_KEY" # Get it at https://console.cloud.google.com/apis/api/customsearch.googleapis.com/credentials
-os.environ["GOOGLE_CSE_ID"] = "YOUR_CSE_ID" # Get it at https://programmablesearchengine.google.com/
+os.environ["GOOGLE_API_KEY"] = "AIzaSyB1IvTOwkjHb-5mkPP31f3-WSoALrpzJaQ"
+os.environ["GOOGLE_CSE_ID"] = "0790ca008d92a467d" # Get it at https://programmablesearchengine.google.com/
 os.environ["OPENAI_API_BASE"] = "https://api.openai.com/v1"
-os.environ["OPENAI_API_KEY"] = "YOUR_API_KEY" # Get it at https://beta.openai.com/account/api-keys
+os.environ["OPENAI_API_KEY"] = "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" # Get it at https://beta.openai.com/account/api-keys
 
-st.set_page_config(page_title="Interweb Explorer", page_icon="🌐")
+st.set_page_config(page_title="Donor Research", page_icon="🌐")
 
 def settings():
 
@@ -68,9 +69,8 @@ class PrintRetrievalHandler(BaseCallbackHandler):
 
 
 st.sidebar.image("img/ai.png")
-st.header("`Interweb Explorer`")
-st.info("`I am an AI that can answer questions by exploring, reading, and summarizing web pages."
-    "I can be configured to use different modes: public API or private (no data sharing).`")
+st.header("`Room to Read Donor Search`")
+st.info("`I am an AI that can help you build donor profiles for high networth leads.`")
 
 # Make retriever and llm
 if 'retriever' not in st.session_state:
@@ -79,7 +79,7 @@ web_retriever = st.session_state.retriever
 llm = st.session_state.llm
 
 # User input 
-question = st.text_input("`Ask a question:`")
+question = st.text_input("`Who would you like to research:`")
 
 if question:
 
